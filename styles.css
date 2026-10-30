@@ -1,0 +1,67 @@
+:root {
+  --bg: #111218; --surface: #1B1C25; --surface2: #242632; --border: #2E3040;
+  --text: #F3EFE7; --soft: #C9C6D1; --muted: #A3A1AE;
+  --series: #F2B544; --book: #8EC9A2; --movie: #F0896B;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--bg); color: var(--text);
+  font: 16px/1.6 'Manrope', system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+a { color: var(--series); text-underline-offset: 3px; }
+a:hover { text-decoration-thickness: 2px; }
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 20px; }
+
+/* мова: показуємо лише вибрану */
+.en { display: none; }
+html.lang-en .en { display: revert; }
+html.lang-en .uk { display: none; }
+
+header.top { position: sticky; top: 0; z-index: 5; background: rgba(17,18,24,.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); }
+header.top .wrap { display: flex; align-items: center; gap: 12px; height: 64px; }
+.brand { display: flex; align-items: flex-end; gap: 10px; color: var(--text); text-decoration: none; font-family: 'Unbounded', sans-serif; font-weight: 700; font-size: 19px; }
+.logo { display: flex; align-items: flex-end; gap: 3px; height: 24px; }
+.logo i { display: block; width: 6px; border-radius: 2px; }
+.logo i:nth-child(1) { height: 24px; background: var(--series); }
+.logo i:nth-child(2) { height: 19px; background: var(--book); }
+.logo i:nth-child(3) { height: 21px; background: var(--movie); transform: rotate(8deg); }
+nav.links { margin-left: auto; display: flex; gap: 6px; align-items: center; }
+nav.links a { color: var(--soft); text-decoration: none; font-weight: 600; font-size: 14px; padding: 8px 10px; border-radius: 10px; }
+nav.links a:hover, nav.links a[aria-current="page"] { color: var(--text); background: var(--surface); }
+.lang { border: 1px solid var(--border); background: transparent; color: var(--text); font: 700 13px 'Manrope', sans-serif; height: 36px; min-width: 44px; padding: 0 10px; border-radius: 10px; cursor: pointer; }
+.lang:hover { background: var(--surface); }
+@media (max-width: 560px) { nav.links .hide-sm { display: none; } }
+
+.hero { padding: 64px 0 40px; }
+.hero h1 { font-family: 'Unbounded', sans-serif; font-weight: 700; font-size: clamp(30px, 7vw, 46px); line-height: 1.15; letter-spacing: -.5px; margin: 0 0 16px; }
+.hero p { color: var(--soft); font-size: 18px; margin: 0 0 28px; max-width: 34em; }
+.badges { display: flex; flex-wrap: wrap; gap: 10px; }
+.badge { display: inline-flex; align-items: center; gap: 8px; padding: 12px 16px; border-radius: 14px; background: var(--surface); border: 1px solid var(--border); color: var(--soft); font-weight: 600; font-size: 14px; }
+
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; margin: 8px 0 48px; }
+.card { padding: 18px; border-radius: 18px; background: var(--surface); border: 1px solid var(--border); }
+.card h3 { margin: 0 0 6px; font-size: 16px; }
+.card p { margin: 0; color: var(--soft); font-size: 14px; }
+.card.s { border-color: #4A3D1E; } .card.s h3 { color: var(--series); }
+.card.b { border-color: #2F4A3A; } .card.b h3 { color: var(--book); }
+.card.m { border-color: #533228; } .card.m h3 { color: var(--movie); }
+
+.doc { padding: 40px 0 56px; }
+.doc h1 { font-family: 'Unbounded', sans-serif; font-weight: 700; font-size: clamp(26px, 6vw, 36px); line-height: 1.2; margin: 0 0 6px; }
+.doc .date { color: var(--muted); margin: 0 0 28px; font-size: 14px; }
+.doc h2 { font-size: 20px; margin: 36px 0 10px; scroll-margin-top: 80px; }
+.doc p, .doc li { color: var(--soft); }
+.doc ul { padding-left: 22px; }
+.doc li { margin: 6px 0; }
+.doc strong { color: var(--text); }
+.note { padding: 14px 16px; border-radius: 14px; background: var(--surface); border: 1px solid var(--border); color: var(--soft); }
+table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 14px; }
+th, td { text-align: left; padding: 10px; border-bottom: 1px solid var(--border); vertical-align: top; color: var(--soft); }
+th { color: var(--text); font-weight: 700; }
+.tablewrap { overflow-x: auto; }
+
+footer { border-top: 1px solid var(--border); padding: 28px 0 40px; color: var(--muted); font-size: 14px; }
+footer .wrap { display: flex; flex-wrap: wrap; gap: 8px 18px; align-items: center; }
+footer a { color: var(--soft); }
+footer .tmdb { flex-basis: 100%; font-size: 12px; color: var(--muted); }
